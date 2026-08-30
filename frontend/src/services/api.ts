@@ -13,8 +13,10 @@ import {
   FilterState,
 } from '../types';
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://expenseflow-x4qo.onrender.com/api';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: API_URL,
 });
 
 // Attach JWT token to requests
