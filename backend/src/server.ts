@@ -19,6 +19,19 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Root API Welcome
+app.get('/', (_req, res) => {
+  res.json({
+    name: '⚡ ExpenseFlow Backend API',
+    status: 'online',
+    timestamp: new Date().toISOString(),
+    endpoints: {
+      health: '/health',
+      api: '/api',
+    },
+  });
+});
+
 // Health Check
 app.get('/health', (_req, res) => {
   res.json({
